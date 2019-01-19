@@ -15,7 +15,7 @@ function logFakeNews(tabs) {
 function getData(url) {
   console.log("Start of getData with url:", url)
 
-  return fetch(url).then(response => console.log(response));
+  return fetch(url, {mode: "no-cors"}).then(response => console.log(response));
 }
 
 
