@@ -11,6 +11,7 @@ Main features:
 Optional. If we have time(probably not)
 3. Metadata of website.
 2. Analyze sentiment. To get score of how neutral article is.
+4. Use the News Aggregation API (works like a search engine for news, where you import the news).
 
 
 
