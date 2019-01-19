@@ -17,7 +17,7 @@ def get_content_from_website(url):
 
 if __name__ == "__main__":
     website_text  = get_content_from_website("https://www.bloomberg.com/news/articles/2019-01-19/canadian-oil-surge-fails-to-lift-producers-out-of-the-doldrums?srnd=premium-canada")
-    text_file = open('/media/nick/Nicu Personal/Programming/UoTtHacks/test_text.txt', 'a')
+    text_file = open('/media/nick/Nicu Personal/Programming/UoTtHacks/test_text.txt', 'w')
     text_file.write(website_text)
     text_file.close()
     # html_file = open('/media/nick/Nicu Personal/Programming/UoTtHacks/html_text.html', 'a')
