@@ -2,16 +2,17 @@ Main features:
 
 1. Summarize the text, store it in the title.
 2. Pull score of credibility of website from nonprofits, add it to extension. With ranking.
-3. Measure of sentiment.
+3. Measure of sentiment To get score of how neutral article is.
 4. RELEVANT NEWS ARTICLES
 
 
+Use categorization if we have time(from google maybe) to detect when to activate extension and when not to on facebook.
+translate from other languages to english.
 
 
 Optional. If we have time(probably not)
-3. Metadata of website.
-2. Analyze sentiment. To get score of how neutral article is.
-4. Use the News Aggregation API (works like a search engine for news, where you import the news).
+1. Metadata of website.
+2. Use the News Aggregation API (works like a search engine for news, where you import the news).
 
 Source for data: https://mediabiasfactcheck.com
 
