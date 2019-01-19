@@ -1,10 +1,8 @@
 import requests
 
-url = "https://api.meaningcloud.com/summarization-1.0"
-
-payload = "key=YOUR_KEY_VALUE&txt=YOUR_TXT_VALUE&url=YOUR_URL_VALUE&doc=YOUR_DOC_VALUE&sentences=YOUR_SENTENCES_VALUE"
-headers = {'content-type': 'application/x-www-form-urlencoded'}
-
-response = requests.request("POST", url, data=payload, headers=headers)
-
-print(response.text)
+# API URL
+# You can change 'summarize' to different endpoints: sentiment, keywords, etc.
+api_url = "https://www.summarizebot.com/api/summarize?apiKey=7bc4b0c77ace418290dc797690f87425&size=20&keywords=10&fragments=15&url=URL_FOR_PROCESSING"
+r = requests.get(api_url)
+json_res = r.json()
+print(json_res)
