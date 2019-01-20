@@ -13,15 +13,13 @@ def main():
     csv_file = csv.reader(read_file)
 
     for row in csv_file:
-        constraints = "-youtube -facebook -twitter " \
-                                     "-wikipedia -linkedin -soundcloud " \
-                                     "-pinterest -instagram -amazon -reddit -quora"
-        for url in search(row[0] + " " + constraints, start=0, stop=1):
+        for url in search(row[0], start=0, stop=1):
             print(url)
             write_file = open("website_data.csv", 'a')
             with write_file:
                 writer = csv.writer(write_file)
                 writer.writerow([url])
+                break
 
 
 if __name__ == '__main__':
