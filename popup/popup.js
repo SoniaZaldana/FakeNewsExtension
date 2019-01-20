@@ -7,10 +7,23 @@ function getURL(tabs) {
   return tab.url
 }
 
-function logFakeNews(tabs) {
-  console.log(" Launch Fetch");
-  result = getData('https://elliot-ford.lib.id/fake-news-extension@dev/?url=https://politics.theonion.com/john-kelly-resigns-in-last-ditch-effort-to-save-his-and-1830989628');
-  console.log(result);
+function getRelated(title) {
+  console.log("Getting Related....");
+  console.log(url);
+  fetch("https://elliot-ford.lib.id/fake-news-extension@dev/related_news/?title=".concat(title))
+    .then(response => response.json())
+    .then(function(json) {
+      for( value in json.value) {
+        var name = json.value[value].name
+        var provider = json.value[value].provider[0].name
+        var url = json.value[value].url
+        //console.log(name);
+        //console.log(provider);
+        //console.log(url);
+        document.getElementById("alt-list").innerHTML += "<li><a href=\"" + url + "\">" + provider + " - " + name + "</a></li>";
+      }
+      })
+    .catch(error => console.log(error));
 }
 
 function getAccuracy(url) {
@@ -213,7 +226,7 @@ var real_gauge = function(container, configuration) {
   var config = {
     size                      : 400,
     clipWidth                 : 200,
-    clipHeight                : 110,
+    clipHeight                : 100,
     ringInset                 : 20,
     ringWidth                 : 20,
 
@@ -292,7 +305,7 @@ var real_gauge = function(container, configuration) {
   that.configure = configure;
 
   function centerTranslation() {
-    return 'translate('+ config.clipWidth / 2 + ',' + config.clipHeight / 2 + ')';
+    return 'translate('+ config.clipWidth / 2 + ',' + (config.clipHeight - 20)  + ')';
   }
 
   function isRendered() {
@@ -340,9 +353,8 @@ var real_gauge = function(container, configuration) {
     var lg = svg.append('g')
       .attr('class', 'label')
       .attr('transform', centerTx);
-    lg.append('text').attr('transform', 'rotate(-90) translate(0,-56) rotate(90)').text('Fake');
-    lg.append('text').attr('transform', 'rotate(90) translate(0,-32) rotate(-90)').text('Real');
-    lg.append('text').attr('transform', 'translate(0,-45)').attr('text-anchor','middle').text('Article Accuracy');
+    lg.append('text').attr('transform', 'rotate(-95) translate(0,-75) rotate(95)').attr('text-anchor', 'middle').text('Untrustworthy');
+    lg.append('text').attr('transform', 'rotate(95) translate(0,-75) rotate(-95)' ).attr('text-anchor', 'middle').text('Trustworthy');
     value = lg.append('text').attr('transform', 'translate(0,20)').attr('text-anchor','middle').text(0);
 
     var lineData = [ [config.pointerWidth / 2, 0],
@@ -398,10 +410,11 @@ function updateRealGauge(input) {
 var realGauge;
 
 function onDocumentReady() {
+  /*
   lrGauge = lrgauge('#lr-gauge', {
     size: 100,
-    clipWidth: 150,
-    clipHeight: 200,
+    clipWidth: 143,
+    clipHeight: 125,
     ringWidth: 20,
     minValue: -1,
     maxValue: 1,
@@ -409,11 +422,12 @@ function onDocumentReady() {
   });
   lrGauge.scale
   lrGauge.render();
+  */
 
    realGauge = real_gauge('#real-gauge', {
-    size: 100,
-    clipWidth: 150,
-    clipHeight: 200,
+    size: 200,
+    clipWidth: 300,
+    clipHeight: 100,
     ringWidth: 20,
     minValue: 0,
     maxValue: 1,
@@ -424,7 +438,7 @@ function onDocumentReady() {
 
 
   // every few seconds update reading values
-  updateLrGauge("Hi");
+  //updateLrGauge("Hi");
   updateRealGauge("Real");
 }
 
@@ -444,6 +458,7 @@ function onError(err){
 
 function main(tabs) {
   getAccuracy(getURL(tabs));
+  getRelated(getURL(tabs));
 }
 
 chrome.tabs.query({

@@ -1,5 +1,11 @@
 html, body {
   width: 300px;
+  height: auto;
+  align: center;
+}
+
+h1 {
+  text-align: center;
 }
 
 .hidden {
@@ -12,4 +18,32 @@ html, body {
 
 #real-gauge {
   float: right;
+}
+
+.alternative {
+  float: down;
+}
+
+table {
+  width: 285px;
+  left: 0px;
+}
+.gauges {
+   width: 290px;
+   left: 0;
+ }
+
+table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+th, td {
+  width: 1fr;
+  font-size: 15px;
+}
+
+ol {
+  width: 210px;
+  left: 0;
 }
