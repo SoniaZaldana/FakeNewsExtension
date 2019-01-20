@@ -5,17 +5,18 @@ function getURL(tabs) {
 }
 
 function logFakeNews(tabs) {
-  console.log("Head of logFakeNews");
-  result = getData('https://www.summarizebot.com/api/checkfake?apiKey=7bc4b0c77ace418290dc797690f87425&size=20&keywords=10&fragments=15&url=https://politics.theonion.com/john-kelly-resigns-in-last-ditch-effort-to-save-his-and-1830989628')
-  //result = getData('https://example.com')
-  console.log("Tail of logFakeNews");
+  console.log(" Launch Fetch");
+  result = getData('https://elliot-ford.lib.id/fake-news-extension@dev/?url=https://politics.theonion.com/john-kelly-resigns-in-last-ditch-effort-to-save-his-and-1830989628');
   console.log(result);
 }
 
 function getData(url) {
   console.log("Start of getData with url:", url)
 
-  return fetch(url, {mode: "no-cors"}).then(response => console.log(response));
+  return fetch(url)
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.log(error));
 }
 
 
@@ -23,4 +24,8 @@ function onError(err){
   console.error(err);
 }
 
-browser.tabs.query({currentWindow: true, active: true}).then(logFakeNews, onError);
+chrome.tabs.query({
+    active: true,
+    currentWindow: true
+}, logFakeNews);
+
