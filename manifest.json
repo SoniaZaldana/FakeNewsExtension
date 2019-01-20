@@ -7,8 +7,7 @@
   "description": "Parses the text of the article loaded to determine the probability of the news being either click-bait or fake news as well as determining the biases of the article and providing similar articles that have different biases",
   "homepage_url": "https://github.com/SoniaZaldana/UoftHacks2019/invitations",
   "icons": {
-    "48": "icons/magnifier.svg",
-    "96": "icons/magnifier.svg"
+    "128": "icons/icon.png"
   },
 
   "background" : {"scripts": ["d3.v2.min.js"]},
@@ -20,7 +19,7 @@
   ],
 
   "browser_action": {
-    "default_icon": "icons/magnifier.svg",
+    "default_icon": "icons/icon.png",
     "default_title": "Check Validity",
     "default_popup": "popup/popup.html"
   },
