@@ -26,7 +26,7 @@ bias_dictionary = {
 
 def main():
 
-    file = open("BiasData.csv")
+    file = open("original_bias_data.csv")
 
     csv_file = csv.reader(file)
 
