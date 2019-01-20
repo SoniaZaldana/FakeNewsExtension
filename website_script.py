@@ -9,7 +9,7 @@ except ImportError:
 
 
 def main():
-    read_file = open("TestBiasData.csv")
+    read_file = open("BiasData.csv")
     csv_file = csv.reader(read_file)
 
     for row in csv_file:
