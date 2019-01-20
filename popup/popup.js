@@ -7,10 +7,10 @@ function getURL(tabs) {
   return tab.url
 }
 
-function getRelated(title) {
+function getRelated(url) {
   console.log("Getting Related....");
   console.log(url);
-  fetch("https://elliot-ford.lib.id/fake-news-extension@dev/related_news/?title=".concat(title))
+  fetch("https://elliot-ford.lib.id/fake-news-extension@dev/related_news/?title=".concat(url))
     .then(response => response.json())
     .then(function(json) {
       for( value in json.value) {
