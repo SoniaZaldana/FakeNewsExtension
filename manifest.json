@@ -11,9 +11,12 @@
     "96": "icons/magnifier.svg"
   },
 
+  "background" : {"scripts": ["d3.v2.min.js"]},
+
 
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "webRequest"
   ],
 
   "browser_action": {
