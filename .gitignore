@@ -106,3 +106,4 @@ venv.bak/
 .idea/
 passwords.py
 test_text.txt
+gc.json

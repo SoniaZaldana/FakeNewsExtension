@@ -1,0 +1,13 @@
+{
+  "name": "elliot-ford/fake-news-extension",
+  "version": "0.0.1",
+  "author": "nickstroncea",
+  "stdlib": {
+    "name": "elliot-ford/fake-news-extension",
+    "timeout": 10000
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "@google-cloud/language": "^2.0.0"
+  }
+}
